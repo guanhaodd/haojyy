@@ -58,9 +58,10 @@ public class LoginController {
 				return "forward:/WEB-INF/pages/login/login.jsp";
 			}
 			request.getSession().removeAttribute(Constants.VALID_CODE);
-			String username = user.getUserName();
+			String username = new String(Base64Decoder.decode(user.getUserName()));
 			String password = new String(Base64Decoder.decode(user.getPassword()));
 			user.setPassword(password);
+			user.setUserName(username);
 			Subject currentUser = SecurityUtils.getSubject();
 			UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), MD5Util.md5(user.getPassword()));
 			try {  
