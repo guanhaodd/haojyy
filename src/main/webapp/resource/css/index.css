@@ -1,0 +1,8 @@
+.iframepage{
+	frameborder:0 ;
+	marginheight:0;
+	marginwidth:0;
+	overflow: hidden;
+	height: auto;
+	min-height: 350px;
+}

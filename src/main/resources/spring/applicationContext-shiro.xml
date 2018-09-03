@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans 
+	   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	   http://www.springframework.org/schema/context 
+	   http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	<!-- 权限管理器 -->
+	<bean id="securityManager"	class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="shiroDbRealm" />
+		<property name="cacheManager" ref="shiroEhcacheManager" />
+	</bean>
+	
+	<!--内部过滤器配置-->
+	<bean id="shiroFilter" 	class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- shiro的核心安全接口 -->
+		<property name="securityManager" ref="securityManager" />
+		<!-- 要求登录时的链接 -->
+		<property name="loginUrl" value="/html/index.html" />
+		<!-- 未授权时要跳转的连接 -->
+		<property name="unauthorizedUrl" value="/html/index.html" />
+		<!-- shiro连接约束配置 -->
+		<property name="filterChainDefinitions">
+			<value>
+			<!--静态资源直接通过--> 
+			/index.jsp = anon
+			/resource/** = anon
+			/images/** = anon
+			/js/** = anon
+			/front/** = anon
+			/html/** = anon
+			/WEB-INF/pages/login/** = anon
+			/WEB-INF/pages/front/** = anon
+			/skin/front/** = anon
+			/libs/** = anon
+			/style/** = anon
+			/init/* = anon
+			/login/** = anon
+			/logon = anon
+			/logout = anon
+			/vimg = anon
+			/WxServlet = anon
+			/weixin/user/** = anon
+			/** = authc
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManagerConfigFile" value="classpath:ehcache/ehcache-shiro.xml"></property>
+	</bean>
+	
+	<bean id="cacheManager"  class="org.apache.shiro.cache.MemoryConstrainedCacheManager" />
+	<!-- 项目自定义的Realm -->
+    <bean id="shiroDbRealm" class="com.gh.app.util.service.realm.ShiroDbRealm" ></bean>
+	
+	
+	<bean id="lifecycleBeanPostProcessor"   class="org.apache.shiro.spring.LifecycleBeanPostProcessor" /> 
+</beans>
