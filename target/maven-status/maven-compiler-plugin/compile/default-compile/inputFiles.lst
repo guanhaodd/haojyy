@@ -11,7 +11,6 @@ D:\tech\git\haojyy\src\main\java\com\gh\app\manage\module\product\service\Produc
 D:\tech\git\haojyy\src\main\java\com\gh\app\util\tool\charactor\DateUtil.java
 D:\tech\git\haojyy\src\main\java\com\gh\app\util\tool\converter\CustomDateSerializer.java
 D:\tech\git\haojyy\src\main\java\com\gh\app\manage\module\main\controller\MainController.java
-D:\tech\git\haojyy\src\main\java\com\gh\app\weixin\module\user\WeixinUserController.java
 D:\tech\git\haojyy\src\main\java\com\gh\app\manage\module\sys\upload\service\UploadService.java
 D:\tech\git\haojyy\src\main\java\com\gh\app\util\service\realm\ShiroDbRealm.java
 D:\tech\git\haojyy\src\main\java\com\gh\app\util\tool\inteceptor\ParameterRequestWrapper.java
@@ -38,6 +37,7 @@ D:\tech\git\haojyy\src\main\java\com\gh\app\util\tool\io\PropertiesLoader.java
 D:\tech\git\haojyy\src\main\java\com\gh\app\util\service\impl\UtilServiceImpl.java
 D:\tech\git\haojyy\src\main\java\com\gh\app\manage\module\sys\user\bean\TbUser.java
 D:\tech\git\haojyy\src\main\java\com\gh\app\util\entities\QuiPager.java
+D:\tech\git\haojyy\src\main\java\com\gh\app\weixin\module\user\controller\WeixinUserController.java
 D:\tech\git\haojyy\src\main\java\com\gh\app\util\tool\inteceptor\ParametersFilter.java
 D:\tech\git\haojyy\src\main\java\com\gh\app\util\tool\converter\StringToDateConverter.java
 D:\tech\git\haojyy\src\main\java\com\gh\app\util\controller\BaseController.java

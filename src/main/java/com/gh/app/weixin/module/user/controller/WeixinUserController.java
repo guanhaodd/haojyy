@@ -1,4 +1,4 @@
-package com.gh.app.weixin.module.user;
+package com.gh.app.weixin.module.user.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.gh.app.manage.entity.AppConfig;
 import com.gh.app.util.tool.endecode.AesCbcUtil;
@@ -59,8 +60,7 @@ public class WeixinUserController {
         //发送请求
         String sr = HttpRequestUtil.sendGet("https://api.weixin.qq.com/sns/jscode2session", params);
         //解析相应内容（转换成json对象）
-        JSONObject json = new JSONObject();
-        json = json.getJSONObject(sr);
+        JSONObject json = JSON.parseObject(sr);
         //获取会话密钥（session_key）
         String session_key = json.get("session_key").toString();
         //用户的唯一标识（openid）
